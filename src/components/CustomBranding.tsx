@@ -40,22 +40,27 @@ export default function CustomBranding() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        gridRef.current?.children || [],
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: gridRef.current,
-            start: "top 75%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+      const cards = gridRef.current?.children || [];
+      
+      Array.from(cards).forEach((card, idx) => {
+        const isLeft = idx % 2 === 0;
+        
+        gsap.fromTo(
+          card,
+          { opacity: 0, x: isLeft ? -50 : 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.85,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -63,13 +68,16 @@ export default function CustomBranding() {
 
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open("https://wa.me/923374259849?text=Hi%20Evoza%20Enterprises,%20I%20want%20to%20know%20about%20your%20custom%20branding,%20embroidery,%20and%20packaging%20services.", "_blank");
+    window.open(
+      "https://wa.me/923374259849?text=Hi%20Evoza%20Enterprises,%20I%20want%20to%20know%20about%20your%20custom%20branding,%20embroidery,%20and%20packaging%20services.",
+      "_blank"
+    );
   };
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 bg-bg-secondary border-t border-border-primary/50">
+    <section ref={containerRef} className="py-24 md:py-36 bg-bg-secondary border-t border-border-primary/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
+        <div className="text-center max-w-2xl mx-auto mb-20 md:mb-28">
           <span className="font-display text-[10px] md:text-xs font-bold tracking-widest bg-brand/10 text-brand px-3 py-1.5 rounded-full uppercase mb-4">
             Private Label Services
           </span>
@@ -87,7 +95,7 @@ export default function CustomBranding() {
             return (
               <div
                 key={idx}
-                className="bg-white border border-border-primary/60 hover:border-brand/40 p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 group hover:-translate-y-0.5"
+                className="bg-white border border-border-primary/60 hover:border-brand/40 p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-md transition-all duration-[250ms] ease-out hover:-translate-y-1.5 group"
               >
                 <div className="flex flex-col sm:flex-row items-start gap-6">
                   {/* Icon Container */}
@@ -125,7 +133,7 @@ export default function CustomBranding() {
           <a
             href="https://wa.me/923374259849"
             onClick={handleWhatsAppClick}
-            className="inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-white font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-white font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
           >
             <MessageSquare className="w-5 h-5" />
             Request Branding Samples

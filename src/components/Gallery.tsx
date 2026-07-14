@@ -53,22 +53,21 @@ export default function Gallery() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const items = gridRef.current?.querySelectorAll(".gallery-item") || [];
+      
+      // Sequential, staggered reveal as the grid enters the viewport
       gsap.fromTo(
         Array.from(items),
-        { opacity: 0, scale: 0.95, y: 20 },
+        { opacity: 0, scale: 0.96, y: 30 },
         {
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.7,
-          stagger: {
-            each: 0.12,
-            from: "start",
-          },
+          duration: 0.8,
+          stagger: 0.12,
           ease: "power2.out",
           scrollTrigger: {
             trigger: gridRef.current,
-            start: "top 75%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         }
@@ -79,9 +78,9 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 bg-bg-secondary border-t border-border-primary/50">
+    <section ref={containerRef} className="py-24 md:py-36 bg-bg-secondary border-t border-border-primary/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
           <span className="font-display text-[10px] md:text-xs font-bold tracking-widest bg-brand/10 text-brand px-3 py-1.5 rounded-full uppercase mb-4">
             Our Work
           </span>
@@ -101,14 +100,15 @@ export default function Gallery() {
           {galleryItems.map((item, idx) => (
             <div
               key={idx}
-              className={`gallery-item relative rounded-2xl overflow-hidden border border-border-primary/50 shadow-sm group ${item.span}`}
+              className={`gallery-item relative rounded-2xl overflow-hidden border border-border-primary/50 shadow-sm group bg-white ${item.span}`}
             >
               <Image
                 src={item.src}
                 alt={item.alt}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+                className="object-cover group-hover:scale-105 transition-transform duration-[450ms] ease-out"
               />
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />

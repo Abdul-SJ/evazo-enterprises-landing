@@ -43,18 +43,19 @@ export default function Testimonials() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Stagger reveal of testimonials
       gsap.fromTo(
         cardsRef.current?.children || [],
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 35 },
         {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          stagger: 0.2,
+          stagger: 0.15,
           ease: "power3.out",
           scrollTrigger: {
             trigger: cardsRef.current,
-            start: "top 75%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         }
@@ -73,9 +74,9 @@ export default function Testimonials() {
   };
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 bg-white border-t border-border-primary/50">
+    <section ref={containerRef} className="py-24 md:py-36 bg-white border-t border-border-primary/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+        <div className="text-center max-w-2xl mx-auto mb-20 md:mb-28">
           <span className="font-display text-[10px] md:text-xs font-bold tracking-widest bg-brand/10 text-brand px-3 py-1.5 rounded-full uppercase mb-4">
             Client Testimonials
           </span>
@@ -91,7 +92,7 @@ export default function Testimonials() {
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white border border-border-primary/60 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
+              className="bg-white border border-border-primary/60 rounded-2xl p-8 md:p-10 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md hover:border-brand/20 flex flex-col group"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-5">
@@ -126,7 +127,7 @@ export default function Testimonials() {
           <a
             href="https://wa.me/923374259849"
             onClick={handleWhatsAppClick}
-            className="inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-white font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-white font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
           >
             <MessageSquare className="w-5 h-5" />
             Start Your Project

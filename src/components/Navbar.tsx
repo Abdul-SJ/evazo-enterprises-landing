@@ -27,13 +27,6 @@ export default function Navbar() {
         </a>
 
         <div className="flex items-center gap-6">
-          <a
-            href="https://wa.me/923374259849"
-            onClick={handleWhatsAppClick}
-            className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-text-muted hover:text-brand transition-colors duration-200"
-          >
-            WhatsApp Live Support
-          </a>
           <button
             onClick={handleWhatsAppClick}
             className="inline-flex items-center gap-2 bg-brand hover:bg-brand-hover text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"

@@ -41,24 +41,25 @@ const faqs = [
 export default function FAQ() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
   const answersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const items = containerRef.current?.querySelectorAll(".faq-item") || [];
+      
+      // Animate each accordion item entering viewport
       gsap.fromTo(
         Array.from(items),
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.65,
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 75%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         }
@@ -91,7 +92,7 @@ export default function FAQ() {
       setOpenIndex(null);
     } else {
       setOpenIndex(idx);
-      // Wait one frame, then animate
+      // Animating the newly opened item
       setTimeout(() => {
         const el = answersRef.current[idx];
         if (el) {
@@ -101,7 +102,7 @@ export default function FAQ() {
           gsap.fromTo(
             el,
             { height: 0, opacity: 0 },
-            { height: fullH, opacity: 1, duration: 0.45, ease: "power2.out" }
+            { height: fullH, opacity: 1, duration: 0.4, ease: "power2.out" }
           );
         }
       }, 0);
@@ -109,9 +110,9 @@ export default function FAQ() {
   };
 
   return (
-    <section ref={containerRef} className="py-20 md:py-32 bg-bg-secondary border-t border-border-primary/50">
+    <section ref={containerRef} className="py-24 md:py-36 bg-bg-secondary border-t border-border-primary/50 relative overflow-hidden">
       <div className="max-w-3xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 md:mb-24">
           <span className="font-display text-[10px] md:text-xs font-bold tracking-widest bg-brand/10 text-brand px-3 py-1.5 rounded-full uppercase mb-4">
             Common Questions
           </span>
@@ -153,7 +154,7 @@ export default function FAQ() {
                   }}
                   style={{ height: 0, overflow: "hidden", opacity: 0 }}
                 >
-                  <div ref={(el) => { contentRefs.current[idx] = el; }} className="px-6 pb-6">
+                  <div className="px-6 pb-6">
                     <p className="text-text-muted leading-relaxed text-sm md:text-base">{faq.a}</p>
                   </div>
                 </div>

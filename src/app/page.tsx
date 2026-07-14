@@ -1,12 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import VSL from "@/components/VSL";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import FeaturedProduct from "@/components/FeaturedProduct";
 import ManufacturingProcess from "@/components/ManufacturingProcess";
 import CustomBranding from "@/components/CustomBranding";
 import QualitySection from "@/components/QualitySection";
-import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
+import Gallery from "@/components/Gallery";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -18,13 +19,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <VSL />
         <WhyChooseUs />
         <FeaturedProduct />
         <ManufacturingProcess />
         <CustomBranding />
         <QualitySection />
-        <Gallery />
         <Testimonials />
+        <Gallery />
         <FAQ />
         <CTA />
       </main>
