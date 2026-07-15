@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Evazo Meta Landing
 
-## Getting Started
+A high-converting Meta Ads landing page for **Evazo Enterprises**, built with **Next.js**, **Tailwind CSS**, and **GSAP**.
 
-First, run the development server:
+This project is designed as a **single-page landing page** optimized for Facebook and Instagram advertising. Its primary goal is to generate qualified leads through **WhatsApp**, providing a fast, responsive, and engaging user experience.
+
+## ✨ Features
+
+* ⚡ Built with Next.js (App Router)
+* 🎨 Styled using Tailwind CSS
+* ✨ Smooth GSAP animations
+* 📱 Fully responsive (mobile-first)
+* 🚀 Optimized for performance
+* 💬 WhatsApp-focused conversion flow
+* ♿ Accessible and semantic HTML
+* 🌐 SEO-ready metadata
+* 🖼️ Optimized images with `next/image`
+
+## 🛠️ Tech Stack
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* GSAP
+* Lucide React
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/evazo-meta-landing.git
+```
+
+### Navigate to the project
+
+```bash
+cd evazo-meta-landing
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and visit:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Production Build
 
-## Learn More
+Build the application:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run the production server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+app/
+components/
+public/
+lib/
+styles/
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Purpose
+
+This landing page is designed specifically for **paid Meta (Facebook & Instagram) traffic**.
+
+The page intentionally avoids unnecessary navigation or distractions, focusing on a single conversion goal:
+
+* Start a WhatsApp conversation
+
+## 📈 Optimization
+
+The project is optimized for:
+
+* Fast loading
+* Mobile-first experience
+* High conversion rates
+* Clean UI/UX
+* Smooth animations
+* SEO best practices
+
+## 🚀 Deployment
+
+This project is ready to deploy on **Vercel**.
+
+1. Push the repository to GitHub.
+2. Import the repository into Vercel.
+3. Deploy with the default Next.js configuration.
+
+## 📄 License
+
+This project is provided for demonstration and client presentation purposes.
